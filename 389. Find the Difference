@@ -1,0 +1,13 @@
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        int ans=0;//xor use kro kyuki same letter will cancel out 
+        for(char c:s){
+            ans^=c;
+        }
+        for (char c:t){
+            ans^=c;
+        }
+return ans;
+    }
+};

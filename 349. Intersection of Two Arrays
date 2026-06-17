@@ -4,6 +4,17 @@ public:
         vector<int>ans;
        sort(nums1.begin(),nums1.end());
        sort(nums2.begin(),nums2.end());
-       set_insection(nums1.begin(),nums1.end(),nums2.begin(),nums2.end(),back_inserter(ans)); 
+       set_intersection(nums1.begin(),nums1.end(),nums2.begin(),nums2.end(),back_inserter(ans)); 
+       set<int>s;
+       for(int i=0;i<ans.size();i++){
+        s.insert(ans[i]);
+       }
+       vector<int>res;
+        for (auto it:s) {
+            res.push_back(it);
+        }
+
+        return res;
+       
     }
 };

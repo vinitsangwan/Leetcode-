@@ -1,0 +1,8 @@
+class Solution {
+public:
+    double angleClock(int hour, int minutes) {
+        double ans=30*hour-11*minutes*1.0/2;
+        double ans1=abs(ans);
+        return min(ans1,360-ans1);
+    }
+};

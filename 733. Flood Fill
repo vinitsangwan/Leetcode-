@@ -1,0 +1,39 @@
+class Solution {
+public:
+
+
+//                                  ** Graph Matrix using DFS **
+//Leetcode:-https://leetcode.com/problems/flood-fill/description
+//Here we have the condition that they should have same initial colour and they should be connectedd in 4 directions i.e. up,down,left,right
+
+// const int N=50;
+// vector<int>g[N];
+// bool vis[N];
+
+void dfs(int i,int j,int initialColor,int newColor,vector<vector<int>>& image){
+   
+    
+    //Yaha visited array ki jrurat nhi hai kyuki humne ye condition de di hai ki agr initial color same nhi hai toh hum usko traverse nhi krenge toh voh visited array ka kaam krdega
+     int n=image.size();
+     int m=image[0].size();
+      if(i<0 || j<0) return ;//negative index is not allowed
+     if(i>=n || j>=m) return ;//outsidematrix index is not allowed
+     if(image[i][j]!=initialColor) return ;//if the current pixel is not of initial color then we will not traverse it
+    
+     image[i][j]=newColor;//change the color of the current pixel to new color
+     
+        dfs(i-1,j,initialColor,newColor,image);//up 
+        dfs(i+1,j,initialColor,newColor,image);//down
+        dfs(i,j-1,initialColor,newColor,image);//left
+        dfs(i,j+1,initialColor,newColor,image);//right
+
+}
+
+vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+    int initialColor=image[sr][sc];
+     if(initialColor!=newColor) 
+    dfs(sr,sc,initialColor,newColor,image);
+   return image;
+}
+
+};

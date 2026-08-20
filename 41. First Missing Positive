@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+    vector<int>vec;
+    for(int i=0;i<nums.size();i++){
+        if(nums[i]>0){
+            vec.push_back(nums[i]);
+        }
+    }
+    if(vec.size()==0){
+        return 1;
+    }
+    
+    sort(vec.begin(),vec.end());
+    set<int>st;
+    for(int i=0;i<vec.size();i++){
+        st.insert(vec[i]);
+    }
+    vector<int>arr(st.begin(),st.end());
+    long long  mini=arr[0];
+    long long  maxi=arr[arr.size()-1];
+    long long  ans=maxi+1;
+
+    for(int j=0;j<arr.size();j++){
+        if(arr[j]!=j+1){
+       ans=j+1;
+       break;
+        }
+    }
+return ans;
+
+    }
+};         

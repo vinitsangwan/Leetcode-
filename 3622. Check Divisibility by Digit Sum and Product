@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool checkDivisibility(int n) {
+        int original=n;//make copy of original n 
+        int sum=0;
+        int pdt=1;
+        while(n!=0){
+            int digit=n%10;
+            sum+=digit;
+            pdt*=digit;    
+        n=n/10;
+        }
+    int a=sum+pdt;
+    if (original%a==0){
+        return true;
+    }
+    else{
+        return false;
+    }
+    
+
+    }
+};

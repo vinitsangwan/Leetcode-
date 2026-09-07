@@ -1,0 +1,76 @@
+class Solution {
+public:
+    int romanToInt(string s) {
+       string c;
+        int ans=0;
+
+           for(int i=0;i<s.size();i++) {
+            c=s.substr(i,2);
+        if(c=="IV"){
+            ans+=4;
+            i++;
+            continue;
+        }
+        if(c=="IX"){
+            ans+=9;
+              i++;
+            continue;
+        }
+         if(c=="XL"){
+       ans+=40;
+         i++;
+       continue;
+        }
+         if(c=="XC"){
+            ans+=90;
+              i++;
+            continue;
+        }
+         if(c=="CD"){
+            ans+=400;
+              i++;
+            continue;
+        }
+        if(c=="CM"){
+            ans+=900;
+              i++;
+            continue;
+        }
+           
+        c=s.substr(i,1);
+         if(c=="I"){
+            ans+=1;
+            continue;
+
+        }
+        if(c=="V"){
+            ans+=5;
+            continue;
+
+        }
+        if(c=="X"){
+            ans+=10;
+            continue;
+
+        }
+        if(c=="L"){
+            ans+=50;
+            continue;
+
+        }
+        if(c=="C"){
+            ans+=100;
+        }
+        if(c=="D"){
+            ans+=500;
+            continue;
+        }
+        if(c=="M"){
+            ans+=1000;
+            continue;
+        }
+  }
+       return ans;
+         
+    }
+};

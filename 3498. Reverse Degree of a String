@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int reverseDegree(string s) {
+        int sum=0;
+
+        for(int i='a',j=26;i<='z';i++,j--){
+            for(int k=0;k<s.length();k++){
+                if(s[k]==i){
+                    sum+=(k+1)*j;
+                }
+            }
+        }
+        return sum;
+    }
+};
